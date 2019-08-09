@@ -6,7 +6,7 @@ const GifTasticObj = {
     baseUrl: "https://api.giphy.com/v1/gifs/search?",
     defaultParam: "&rating=G&lang=en",
     defailtLimit: "&limit=10",
-    searchParam: "&q=Car,",
+    searchParam: "&q=car,",
     numOfButtons: 0,
     domCarButtonsDiv: document.getElementById("car-buttons-div-id"),
     domPicCarDiv: document.getElementById("car-pic-area-div-id"),
@@ -58,7 +58,7 @@ const GifTasticObj = {
         for(let index = 0 ; index < this.gifCars.length; index ++)
         {            
             this.createButton(this.domCarButtonsDiv, this.gifCars[index]);
-        }
+        }            
     },    
 
     resetFuncton: function () {
@@ -90,16 +90,26 @@ const GifTasticObj = {
           });        
     },
 
+    changeCarPics: function () {
+
+        const newUrl = this.getAttribute("item_value");   
+        const currUrl = this.src;         
+        this.src = (this.src === newUrl)? currUrl : newUrl;
+        this.setAttribute("item_value", ( this.getAttribute("item_value") === newUrl)? currUrl : newUrl);
+                
+    },
+
     loadCarPics : function (responseJson) {
 
         for (let index = 0; index < responseJson.data.length ; index++)
         {
             const cardDiv = document.createElement("div");
-            cardDiv.className = "card bg-light mb-1";
+            cardDiv.className = "card bg-light mb-1 rounded";
             cardDiv.style = "width: 12rem; height:10rem; float:left"; 
+            
 
             const cardBodyDiv = document.createElement("div");
-            cardBodyDiv.className = "card-body-sm bg-light";
+            cardBodyDiv.className = "card-body-sm bg-info rounded";
             cardBodyDiv.style = "width: 12rem;"; 
 
             const textElem = document.createElement("h6");
@@ -107,13 +117,17 @@ const GifTasticObj = {
             textElem.textContent = responseJson.data[index].title;
             cardBodyDiv.appendChild(textElem);
 
-            const cardImg = document.createElement("iframe");
-            cardImg.className = "card-img-bottom embed-responsive-item";
-            cardImg.src = responseJson.data[index].images.preview.mp4;
+            const cardImg = document.createElement("img");
+            cardImg.className = "card-img-bottom embed-responsive-item";            
+            cardImg.src = responseJson.data[index].images.fixed_height.url;
+            
+            cardImg.setAttribute("item_value", responseJson.data[index].images.original_still.url);            
+            cardImg.addEventListener("click", this.changeCarPics);
 
-            cardDiv.appendChild(cardBodyDiv);
+            cardDiv.appendChild(cardBodyDiv);            
             cardDiv.appendChild(cardImg);
 
+            
             this.domPicCarDiv.prepend(cardDiv);
             
 
