@@ -84,7 +84,6 @@ const GifTasticObj = {
           })
           .then(function (responseJson) {
 
-            GifTasticObj.domPicCarDiv.interHTML = "";
             GifTasticObj.loadCarPics(responseJson);
 
           });        
@@ -101,6 +100,7 @@ const GifTasticObj = {
 
     loadCarPics : function (responseJson) {
 
+        this.domPicCarDiv.innerHTML = "";
         for (let index = 0; index < responseJson.data.length ; index++)
         {
             const cardDiv = document.createElement("div");
@@ -129,9 +129,6 @@ const GifTasticObj = {
 
             
             this.domPicCarDiv.prepend(cardDiv);
-            
-
-            // console.log (responseJson.data[index]);
         }
     },
 }
