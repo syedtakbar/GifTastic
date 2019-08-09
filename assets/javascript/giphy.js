@@ -115,9 +115,9 @@ const GifTasticObj = {
             cardDiv.appendChild(cardImg);
 
             this.domPicCarDiv.prepend(cardDiv);
-            this.domPicCarDiv.style = "background-color: whitesmoke;"
+            
 
-            console.log (responseJson.data[index]);
+            // console.log (responseJson.data[index]);
         }
     },
 }
