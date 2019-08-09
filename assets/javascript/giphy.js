@@ -44,7 +44,7 @@ const GifTasticObj = {
         itemBtn.setAttribute("value", itemName);   
 
         const pElem = document.createElement("p");                
-        pElem.setAttribute("class", "mt-1 pt-1 item-text"); 
+        pElem.setAttribute("class", "mt-2 pt-1 item-text"); 
                         
         pElem.textContent = itemName;                                
         itemBtn.appendChild(pElem);
@@ -104,24 +104,25 @@ const GifTasticObj = {
         for (let index = 0; index < responseJson.data.length ; index++)
         {
             const cardDiv = document.createElement("div");
-            cardDiv.className = "card bg-light mb-1 rounded";
-            cardDiv.style = "width: 12rem; height:10rem; float:left"; 
+            cardDiv.className = "card bg-info mb-1 pb-1 rounded";
+            cardDiv.style = "width: 12rem; height:12rem; float:left"; 
             
 
             const cardBodyDiv = document.createElement("div");
             cardBodyDiv.className = "card-body-sm bg-info rounded";
-            cardBodyDiv.style = "width: 12rem;"; 
+            
 
             const textElem = document.createElement("h6");
             textElem.className = "card-title-sm";
-            textElem.textContent = responseJson.data[index].title;
+            textElem.textContent = responseJson.data[index].title === "" ? "No Title": responseJson.data[index].title ;
             cardBodyDiv.appendChild(textElem);
 
             const cardImg = document.createElement("img");
-            cardImg.className = "card-img-bottom embed-responsive-item";            
-            cardImg.src = responseJson.data[index].images.fixed_height.url;
+            cardImg.className = "card-img-bottom embed-responsive-item m-1 p-1 rounded";            
+            cardImg.style = "width: 11rem; height:8rem;";
+            cardImg.src = responseJson.data[index].images.fixed_height_still.url; 
             
-            cardImg.setAttribute("item_value", responseJson.data[index].images.original_still.url);            
+            cardImg.setAttribute("item_value", responseJson.data[index].images.fixed_height.url);            
             cardImg.addEventListener("click", this.changeCarPics);
 
             cardDiv.appendChild(cardBodyDiv);            
