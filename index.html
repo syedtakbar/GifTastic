@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>GifTastic</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel='stylesheet' type='text/css' media='screen' href='./assets/css/style.css'>
+    <link href="https://fonts.googleapis.com/css?family=Faster+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Cinzel&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Image and text -->
+    <nav class="navbar navbar-light" style="background-color:black">
+        <a class="navbar-brand mr-sm-2" style="color:#e3f2fd;text-align: center">
+        </a>
+    </nav>
+    <div class="container">
+        <div class="row car-buttons-row">
+            <div class="car-buttons-div pd-2 md-2" id="car-buttons-div-id"></div>
+        </div>
+        <div class="row car-pic-row">
+            <div class="col-sm-9" >
+                <div class="car-pic-area m-2 p-2" id="car-pic-area-div-id"></div>
+            </div>
+            <div class="col-sm-3">
+                <form class="car-input-form m-2 p-2">
+                    <div class="form-group m-2 p-2">
+                        <label for="itemNameInput"><small>Add a car</small></label>
+                        <input type="text" id="itemNameInput" class="form-control" placeholder="Car...">
+                    </div>
+                    <button id="car-submit" type="submit" class="btn btn-info">Submit</button>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+
+    <script src='./assets/javascript/giphy.js'></script>
+</body>
+
+</html>

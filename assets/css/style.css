@@ -1,0 +1,44 @@
+
+
+h4 {
+    text-align: center;
+}
+
+
+
+body {
+    background :url("https://cdn.pixabay.com/photo/2013/11/28/11/29/car-220196_1280.jpg") no-repeat fixed center;
+    font-family: 'Cinzel', serif;    
+}
+
+.item-button {
+    font-size: 15px;
+    text-align: center;
+}
+
+.item-button:hover {
+    background-color: rgb(90,150,199);
+}
+
+
+.item-buttonn:active {
+    box-shadow: 0 5% rgb(73,132,180);
+    transform: translateY(2%);
+}
+
+.car-input-form {
+    background-color: whitesmoke;
+    padding: 5%;
+    margin: 5%;
+    border-radius: 8%;
+    text-align: center;
+
+}
+
+.car-pic-area {
+    /* background-color: whitesmoke; */
+    padding: 5%;
+    margin: 5%;
+    border-radius: 8%;
+    text-align: center;
+}
