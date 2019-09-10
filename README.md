@@ -1,2 +1,3 @@
 # GifTastic
-Fool around with the GIPHY API
+Play around with the GIPHY API
+https://syedtakbar.github.io/GifTastic/
